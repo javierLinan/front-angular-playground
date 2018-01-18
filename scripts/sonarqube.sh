@@ -1,10 +1,19 @@
+
 #!/bin/bash
 set -ev
 
 curl -sSL https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.0.1.733-linux.zip > sonar-scanner.zip
 unzip sonar-scanner.zip
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ "$TRAVIS_PULL_REQUEST_BRANCH" = "feature/"* ]]
+if [ "$TRAVIS_BRANCH" = "develop" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]
+then
+  echo 'Build and analyze develop'
+  ./sonar-scanner-3.0.1.733-linux/bin/sonar-scanner \
+    -Dproject.settings="../sonar-project.properties" \
+    -Dsonar.host.url=$SONAR_HOST_URL \
+    -Dsonar.login=$SONAR_TOKEN
+
+elif [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ "$TRAVIS_PULL_REQUEST_BRANCH" = "feature/"* ]]
 then
   echo 'Build feature branch'
 
