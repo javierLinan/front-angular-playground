@@ -6,9 +6,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --code-coverage ",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint:sonar": "sonarlint --src 'src/**' --tests 'src/**/*.spec.ts'",
+    "lint:fix": "ng lint --fix",
+    "e2e": "ng e2e",
+    "check-dependencies": "npm-check",
+    "check-dependencies:production": "npm-check -p"
   },
   "private": true,
   "dependencies": {
@@ -41,7 +45,9 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "npm-check": "5.5.2",
     "protractor": "~5.1.2",
+    "sonarlint": "1.1.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
