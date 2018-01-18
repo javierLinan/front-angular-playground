@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/javierLinan/front-angular-playground.svg?branch=master)](https://travis-ci.org/javierLinan/front-angular-playground)
+[![Build Status](https://travis-ci.org/javierLinan/front-angular-playground.svg?branch=develop)](https://travis-ci.org/javierLinan/front-angular-playground)
+
 # FrontAngularPlayground
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
